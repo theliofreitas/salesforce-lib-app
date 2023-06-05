@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#9258C4</headerColor>
+        <logo>book</logo>
+        <logoVersion>1</logoVersion>
+        <shouldOverrideOrgTheme>true</shouldOverrideOrgTheme>
+    </brand>
+    <description>App used for library management.</description>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>false</isNavPersonalizationDisabled>
+    <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
+    <label>Library App</label>
+    <navType>Console</navType>
+    <tabs>standard-Account</tabs>
+    <tabs>Book__c</tabs>
+    <tabs>Book_Author__c</tabs>
+    <tabs>Borrowing__c</tabs>
+    <uiType>Lightning</uiType>
+    <utilityBar>Library_App_UtilityBar</utilityBar>
+    <workspaceConfig>
+        <mappings>
+            <tab>Book_Author__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Book__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Borrowing__c</tab>
+        </mappings>
+        <mappings>
+            <tab>standard-Account</tab>
+        </mappings>
+    </workspaceConfig>
+</CustomApplication>
