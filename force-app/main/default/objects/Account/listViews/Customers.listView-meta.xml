@@ -8,7 +8,7 @@
     <filters>
         <field>ACCOUNT.RECORDTYPE</field>
         <operation>equals</operation>
-        <value>PersonAccount.PersonAccount</value>
+        <value>PersonAccount.Customer</value>
     </filters>
     <label>Customers</label>
 </ListView>
