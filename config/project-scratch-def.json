@@ -1,7 +1,11 @@
 {
   "orgName": "Lib App Org",
   "edition": "Developer",
-  "features": ["EnableSetPasswordInApi"],
+  "features": [
+    "EnableSetPasswordInApi",
+    "PersonAccounts",
+    "Communities"
+  ],
   "language": "en_US",
   "settings": {
     "lightningExperienceSettings": {
@@ -9,6 +13,9 @@
     },
     "mobileSettings": {
       "enableS1EncryptedStoragePref2": false
+    },
+    "communitiesSettings": {
+      "enableNetworksEnabled": true
     }
   }
 }
