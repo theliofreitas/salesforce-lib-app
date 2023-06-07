@@ -10,7 +10,7 @@ This is a demo project to summarize my experience in the Salesforce platform.
 
 - Scratch orgs
     - Enable `Person Accounts` and `Communities` features.
-- Data modeling
-    - Junction object **Borrowing** created with master-detail replationship fields to represent many-to-many transactions between **Customers** and **Books**.
-    - Junction object **Book Author** to link Books and Authors.
+- Data modeling, objects and validations
+    - Junction objects with master-detail parent fields to represent many-to-many relatioships.
+    - Lookup filters and validation rules to accomplish business logic declaratively
     

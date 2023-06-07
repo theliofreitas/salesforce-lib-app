@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PathAssistant xmlns="http://soap.sforce.com/2006/04/metadata">
+    <active>true</active>
+    <entityName>Borrowing__c</entityName>
+    <fieldName>Status__c</fieldName>
+    <masterLabel>Borrowing Status</masterLabel>
+    <pathAssistantSteps>
+        <fieldNames>Devolution_Status__c</fieldNames>
+        <info>&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;At this stage, the borrowing is completed.&lt;/span&gt;&lt;/p&gt;&lt;p&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;It&amp;#39;s necessary to inform the book &lt;/span&gt;&lt;strong style=&quot;font-size: 13px;&quot;&gt;Devolution Status&lt;/strong&gt;&lt;span style=&quot;font-size: 13px;&quot;&gt;.&lt;/span&gt;&lt;/p&gt;</info>
+        <picklistValueName>Closed</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;At this stage, the book is already &lt;strong&gt;borrowed&lt;/strong&gt; to the customer.&lt;/p&gt;</info>
+        <picklistValueName>In progress</picklistValueName>
+    </pathAssistantSteps>
+    <pathAssistantSteps>
+        <info>&lt;p&gt;At this stage, the book must be &lt;strong&gt;reserved&lt;/strong&gt; for customer pickup on the scheduled date.&lt;/p&gt;</info>
+        <picklistValueName>Scheduled</picklistValueName>
+    </pathAssistantSteps>
+    <recordTypeName>__MASTER__</recordTypeName>
+</PathAssistant>

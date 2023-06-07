@@ -16,6 +16,7 @@
     <navType>Console</navType>
     <tabs>standard-Account</tabs>
     <tabs>Book__c</tabs>
+    <tabs>Book_Copy__c</tabs>
     <tabs>Book_Author__c</tabs>
     <tabs>Borrowing__c</tabs>
     <uiType>Lightning</uiType>
@@ -23,6 +24,9 @@
     <workspaceConfig>
         <mappings>
             <tab>Book_Author__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Book_Copy__c</tab>
         </mappings>
         <mappings>
             <tab>Book__c</tab>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_books_available__c</fullName>
+    <description>Number of available books for borrowing</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of available books for borrowing</inlineHelpText>
+    <label>Total books available</label>
+    <summaryFilterItems>
+        <field>Book_Copy__c.Status__c</field>
+        <operation>equals</operation>
+        <value>Available</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Book_Copy__c.Book__c</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Summary</type>
+</CustomField>
