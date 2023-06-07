@@ -78,6 +78,8 @@
         <excludeButtons>MassChangeOwner</excludeButtons>
         <fields>NAME</fields>
         <fields>Customer__c</fields>
+        <fields>Status__c</fields>
+        <fields>Devolution_Status__c</fields>
         <fields>Start_Date__c</fields>
         <fields>End_Date__c</fields>
         <relatedList>Borrowing__c.Book_Copy__c</relatedList>
