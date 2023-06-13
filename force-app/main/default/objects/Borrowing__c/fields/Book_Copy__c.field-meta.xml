@@ -19,7 +19,7 @@
             <operation>equals</operation>
             <value>Available</value>
         </filterItems>
-        <isOptional>false</isOptional>
+        <isOptional>true</isOptional>
     </lookupFilter>
     <referenceTo>Book_Copy__c</referenceTo>
     <relationshipLabel>Borrowings</relationshipLabel>

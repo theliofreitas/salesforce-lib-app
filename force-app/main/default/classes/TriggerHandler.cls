@@ -22,7 +22,7 @@ public virtual class TriggerHandler {
             this.beforeUpdate();
         } else if(isBefore && isDelete) {
             this.beforeDelete();
-        } else if(isAfter && isBefore) {
+        } else if(isAfter && isInsert) {
             this.afterInsert();
         } else if(isAfter && isUpdate) {
             this.afterUpdate();
