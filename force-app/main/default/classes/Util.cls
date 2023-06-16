@@ -1,8 +1,8 @@
 public class Util {
     /**
-     * Method to compare two maps of SObjects and return only the modified records based on a specific field.
+     * Method to compare two maps of SObjects and return the records which one of the specified fields has changed.
      */
-    public static Map<Id, SObject> getModifiedRecords(Map<Id, SObject> oldMap, Map<Id, SObject> newMap, String fieldName) {
+    public static Map<Id, SObject> getModifiedRecords(Map<Id, SObject> oldMap, Map<Id, SObject> newMap, String[] fields) {
         Map<Id, SObject> modifiedRecords = new Map<Id, SObject>();
 
         for (Id recordId : newMap.keySet()) {
@@ -10,8 +10,11 @@ public class Util {
             SObject newRecord = newMap.get(recordId); 
 
             if (oldRecord != null) {
-                if (newRecord.get(fieldName) != oldRecord.get(fieldName)) {
-                    modifiedRecords.put(recordId, newRecord);
+                for (String field : fields) {
+                    if (newRecord.get(field) != oldRecord.get(field)) {
+                        modifiedRecords.put(recordId, newRecord);
+                        break;
+                    }
                 }
             }
         }
