@@ -17,3 +17,6 @@ This is a demo project to summarize my experience in the Salesforce platform.
     - `Util` class with common and generic functions to reuse across the org.
     - Simple trigger framework to provide trigger functionality across the objects.
         - `TriggerHandler` -> `SObjectTriggerHandler` -> `SObjectHelper`
+- Flow
+    - Use Record-Triggered Flow instead of complex Apex Triggers to avoid coding when it's not necessary, in that case to perform actions before the record is updated and only when the record is changed to meet the conditions.
+    

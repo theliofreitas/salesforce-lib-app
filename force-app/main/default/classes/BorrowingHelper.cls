@@ -32,17 +32,19 @@ public class BorrowingHelper {
         update bookCopiesToUpdate;
     }
 
-    public static void updateBookCopyStatus(Map<Id, SObject> borrowingsMap, String status) {
+    public static void processBorrowingDeletion(Map<Id, SObject> borrowingsMap) {
         List<Book_Copy__c> bookCopiesToUpdate = new List<Book_Copy__c>();
 
         for (Id borrowingId : borrowingsMap.keySet()) {
             Borrowing__c borrowing = (Borrowing__c) borrowingsMap.get(borrowingId);
             Book_Copy__c bookCopy = new Book_Copy__c();
 
-            bookCopy.Id = borrowing.Book_Copy__c;
-            bookCopy.Status__c = status;
+            if (borrowing.Status__c != 'Closed') {
+                bookCopy.Id = borrowing.Book_Copy__c;
+                bookCopy.Status__c = 'Available';
 
-            bookCopiesToUpdate.add(bookCopy);
+                bookCopiesToUpdate.add(bookCopy);
+            }
         }
 
         update bookCopiesToUpdate;

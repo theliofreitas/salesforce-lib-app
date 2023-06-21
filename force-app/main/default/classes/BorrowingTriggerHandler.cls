@@ -9,6 +9,6 @@ public class BorrowingTriggerHandler extends TriggerHandler {
     }
 
     public override void afterDelete() {
-        BorrowingHelper.updateBookCopyStatus(oldMap, 'Available');
+        BorrowingHelper.processBorrowingDeletion(oldMap);
     }
 }
