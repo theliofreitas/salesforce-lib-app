@@ -27,8 +27,29 @@
                 <identifier>force_highlightsPanel</identifier>
             </componentInstance>
         </itemInstances>
-        <mode>Replace</mode>
         <name>header</name>
+        <type>Region</type>
+    </flexiPageRegions>
+    <flexiPageRegions>
+        <itemInstances>
+            <componentInstance>
+                <componentInstanceProperties>
+                    <name>relatedListComponentOverride</name>
+                    <value>NONE</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>rowsToDisplay</name>
+                    <value>10</value>
+                </componentInstanceProperties>
+                <componentInstanceProperties>
+                    <name>showActionBar</name>
+                    <value>true</value>
+                </componentInstanceProperties>
+                <componentName>force:relatedListContainer</componentName>
+                <identifier>force_relatedListContainer</identifier>
+            </componentInstance>
+        </itemInstances>
+        <name>sidebar</name>
         <type>Region</type>
     </flexiPageRegions>
     <flexiPageRegions>
@@ -38,7 +59,6 @@
                 <identifier>force_detailPanel</identifier>
             </componentInstance>
         </itemInstances>
-        <mode>Replace</mode>
         <name>detailTabContent</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -209,7 +229,6 @@
                 <identifier>flexipage_tab</identifier>
             </componentInstance>
         </itemInstances>
-        <mode>Replace</mode>
         <name>maintabs</name>
         <type>Facet</type>
     </flexiPageRegions>
@@ -224,38 +243,13 @@
                 <identifier>flexipage_tabset</identifier>
             </componentInstance>
         </itemInstances>
-        <mode>Replace</mode>
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
-    <flexiPageRegions>
-        <itemInstances>
-            <componentInstance>
-                <componentInstanceProperties>
-                    <name>relatedListComponentOverride</name>
-                    <value>NONE</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>rowsToDisplay</name>
-                    <value>10</value>
-                </componentInstanceProperties>
-                <componentInstanceProperties>
-                    <name>showActionBar</name>
-                    <value>true</value>
-                </componentInstanceProperties>
-                <componentName>force:relatedListContainer</componentName>
-                <identifier>force_relatedListContainer</identifier>
-            </componentInstance>
-        </itemInstances>
-        <mode>Replace</mode>
-        <name>sidebar</name>
-        <type>Region</type>
-    </flexiPageRegions>
     <masterLabel>Book Record Page</masterLabel>
-    <parentFlexiPage>flexipage__default_rec_L</parentFlexiPage>
     <sobjectType>Book__c</sobjectType>
     <template>
-        <name>flexipage:recordHomeTemplateDesktop</name>
+        <name>flexipage:recordHomeLeftSidebarTemplateDesktop</name>
     </template>
     <type>RecordPage</type>
 </FlexiPage>
