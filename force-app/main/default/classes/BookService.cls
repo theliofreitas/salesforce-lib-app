@@ -1,5 +1,5 @@
 /**
- * Book context strategy class
+ * Context strategy class
  */
 public class BookService {
     private IBookAPI bookAPI;

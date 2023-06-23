@@ -1,5 +1,5 @@
 /**
- * Common interface to all concrete strategies.
+ * Common interface to all concrete strategies
  */
 public interface IBookAPI {
     List<BookData> searchBooks(String query);
