@@ -9,10 +9,7 @@ public class GoogleBookAPI implements IBookAPI {
         String endpoint = API_ENDPOINT + '/books/v1/volumes?q=' + EncodingUtil.urlEncode(query, 'UTF-8');
         HttpResponse response = sendRequest('GET', endpoint);
 
-        // TODO ...
-        System.debug(response.getBody());
-
-        return new List<BookData>();
+        return parseResponse(response);
     }
 
     // Implemented interface method
@@ -42,5 +39,32 @@ public class GoogleBookAPI implements IBookAPI {
         }
 
         return response;
+    }
+
+    // Parse response method
+    private List<BookData> parseResponse(HttpResponse response) {
+        Map<String, Object> parsedResponse = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
+        List<Object> items = (List<Object>) parsedResponse.get('items');
+        List<BookData> bookDataList = new List<BookData>();
+
+        for (Object item : items) {
+            Map<String, Object> book = (Map<String, Object>) item;
+            Map<String, Object> volumeInfo = (Map<String, Object>) book.get('volumeInfo');
+            List<Object> categories = (List<Object>) volumeInfo.get('categories');
+            List<Object> authors = (List<Object>) volumeInfo.get('authors');
+
+            BookData bookData = new BookData();
+            bookData.externalId = (String) book.get('id');
+            bookData.title = (String) volumeInfo.get('title');
+            bookData.description = (String) volumeInfo.get('description');
+            bookData.imageUrl = ''; // TODO
+            bookData.pageCount = (Integer) volumeInfo.get('pageCount');
+            bookData.categories = Util.parseObjectToString(categories);
+            bookData.authors = Util.parseObjectToString(authors);
+
+            bookDataList.add(bookData);
+        }
+
+        return bookDataList;
     }
 }

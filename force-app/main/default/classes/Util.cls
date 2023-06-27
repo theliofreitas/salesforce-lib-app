@@ -21,4 +21,17 @@ public class Util {
 
         return modifiedRecords;
     }
+
+    /**
+     * Method to transform a List of Objects into a List of Strings.
+     */
+    public static List<String> parseObjectToString(List<Object> objectList) {
+        List<String> stringList = new List<String>();
+
+        for (Object obj : objectList) {
+            stringList.add((String) obj);
+        }
+
+        return stringList;
+    }
 }
