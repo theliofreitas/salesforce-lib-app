@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title = 'Book Importer'>
+        <lightning-input 
+            label="Search"
+            type="search"
+            value={searchTerm}
+            onchange={handleSearchTermChange}
+        ></lightning-input>
+
+        <lightning-button
+            label="Search"
+            icon-name="utility:search"
+            onclick={handleSearch}
+        ></lightning-button>
+    </lightning-card>
+</template>
