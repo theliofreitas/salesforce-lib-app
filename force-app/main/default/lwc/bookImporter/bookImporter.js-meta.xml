@@ -3,11 +3,6 @@
     <apiVersion>57.0</apiVersion>
     <isExposed>true</isExposed>
     <targets>
-        <target>lightning__GlobalAction</target>
+        <target>lightning__AppPage</target>
     </targets>
-    <targetConfigs>
-        <targetConfig targets="lightning__GlobalAction">
-            <actionType>ScreenAction</actionType>
-        </targetConfig>
-    </targetConfigs>
 </LightningComponentBundle>

@@ -8,8 +8,8 @@ public class BookService {
         this.bookAPI = bookApi;
     }
 
-    public List<BookData> searchBooks(String query) {
-        return bookAPI.searchBooks(query);
+    public List<BookData> searchBooks(String searchTerm) {
+        return bookAPI.searchBooks(searchTerm);
     }
 
     public List<BookData> getBooks(String[] externalIds) {

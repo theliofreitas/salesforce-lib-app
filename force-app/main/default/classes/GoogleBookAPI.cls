@@ -5,8 +5,8 @@ public class GoogleBookAPI implements IBookAPI {
     private static final String API_ENDPOINT = 'callout:Google_API';
 
     // Implemented interface method
-    public List<BookData> searchBooks(String query) {
-        String endpoint = API_ENDPOINT + '/books/v1/volumes?q=' + EncodingUtil.urlEncode(query, 'UTF-8');
+    public List<BookData> searchBooks(String searchTerm) {
+        String endpoint = API_ENDPOINT + '/books/v1/volumes?q=' + EncodingUtil.urlEncode(searchTerm, 'UTF-8');
         HttpResponse response = sendRequest('GET', endpoint);
 
         return parseResponse(response);
@@ -59,12 +59,13 @@ public class GoogleBookAPI implements IBookAPI {
             bookData.description = (String) volumeInfo.get('description');
             bookData.imageUrl = ''; // TODO
             bookData.pageCount = (Integer) volumeInfo.get('pageCount');
-            bookData.categories = Util.parseObjectToString(categories);
-            bookData.authors = Util.parseObjectToString(authors);
+            bookData.categories = categories != null ? Util.parseObjectToString(categories) : null;
+            bookData.authors = authors != null ? Util.parseObjectToString(authors) : null;
 
             bookDataList.add(bookData);
         }
 
+        System.debug(bookDataList);
         return bookDataList;
     }
 }

@@ -3,14 +3,21 @@ import searchBooks from '@salesforce/apex/BookImporterController.searchBooks';
 
 export default class BookImporter extends LightningElement {
     @api searchTerm = '';
-    @api searchResults = [];
+    searchResults;
 
     handleSearchTermChange(event) {
         this.searchTerm = event.target.value;
     }
 
     handleSearch() {
-        this.searchResults = searchBooks(this.searchTerm);
-        console.log(this.searchResults);
+        searchBooks({ searchTerm: this.searchTerm, api: 'GoogleBookAPI' })
+            .then(results => {
+                this.searchResults = results;
+                console.log(results);
+            })
+            .catch(error => {
+                // Handle any error that occurred
+                console.error('Error calling Apex method:', error);
+            });
     }
 }

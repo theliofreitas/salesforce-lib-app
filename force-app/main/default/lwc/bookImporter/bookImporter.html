@@ -12,5 +12,13 @@
             icon-name="utility:search"
             onclick={handleSearch}
         ></lightning-button>
+
+        <template if:true={searchResults}>
+            <ul>
+                <template for:each={searchResults} for:item="result">
+                    <li key={result.externalId}>{result.title}</li>
+                </template>
+            </ul>
+        </template>
     </lightning-card>
 </template>

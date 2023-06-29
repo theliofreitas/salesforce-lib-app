@@ -16,6 +16,7 @@
     <navType>Console</navType>
     <tabs>standard-Account</tabs>
     <tabs>Book__c</tabs>
+    <tabs>Import_Books</tabs>
     <tabs>Book_Copy__c</tabs>
     <tabs>Book_Author__c</tabs>
     <tabs>Borrowing__c</tabs>
@@ -33,6 +34,9 @@
         </mappings>
         <mappings>
             <tab>Borrowing__c</tab>
+        </mappings>
+        <mappings>
+            <tab>Import_Books</tab>
         </mappings>
         <mappings>
             <tab>standard-Account</tab>
