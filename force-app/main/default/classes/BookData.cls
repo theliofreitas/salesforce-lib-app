@@ -1,5 +1,5 @@
 /**
- * Custom data structure to handle results from Book APIs
+ * Custom type to handle a single Book record returned from the Book APIs
  */
 public class BookData {
     @AuraEnabled public String externalId;

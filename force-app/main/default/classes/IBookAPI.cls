@@ -2,7 +2,6 @@
  * Common interface to all concrete strategies
  */
 public interface IBookAPI {
-    List<BookData> searchBooks(String searchTerm);
-    List<BookData> getBooks(String[] externalIds);
+    BookDataList searchBooks(String searchTerm, Integer startIndex, Integer maxResults);
     BookData getBook(String externalId);
 }

@@ -11,7 +11,7 @@ This is a demo project to summarize my experience in the Salesforce platform.
 - Scratch orgs
     - Enable `Person Accounts` and `Communities` features.
 - Data modeling, objects and validations
-    - Junction objects with master-detail parent fields to represent many-to-many relatioships.
+    - Junction objects with master-detail parent fields to represent many-to-many relationships.
     - Lookup filters and validation rules to accomplish business logic declaratively.
 - Apex
     - `Util` class with common and generic functions to reuse across the org.

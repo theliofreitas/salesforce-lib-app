@@ -5,17 +5,13 @@ public class GoogleBookAPI implements IBookAPI {
     private static final String API_ENDPOINT = 'callout:Google_API';
 
     // Implemented interface method
-    public List<BookData> searchBooks(String searchTerm) {
+    public BookDataList searchBooks(String searchTerm, Integer startIndex, Integer maxResults) {
         String endpoint = API_ENDPOINT + '/books/v1/volumes?q=' + EncodingUtil.urlEncode(searchTerm, 'UTF-8');
+        endpoint += '&startIndex=' + startIndex + '&maxResults=' + maxResults;
+        
         HttpResponse response = sendRequest('GET', endpoint);
 
         return parseResponse(response);
-    }
-
-    // Implemented interface method
-    public List<BookData> getBooks(String[] externalIds) {
-        // TODO ...
-        return new List<BookData>();
     }
 
     // Implemented interface method
@@ -42,10 +38,10 @@ public class GoogleBookAPI implements IBookAPI {
     }
 
     // Parse response method
-    private List<BookData> parseResponse(HttpResponse response) {
+    private BookDataList parseResponse(HttpResponse response) {
         Map<String, Object> parsedResponse = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
         List<Object> items = (List<Object>) parsedResponse.get('items');
-        List<BookData> bookDataList = new List<BookData>();
+        List<BookData> results = new List<BookData>();
 
         for (Object item : items) {
             Map<String, Object> book = (Map<String, Object>) item;
@@ -62,10 +58,13 @@ public class GoogleBookAPI implements IBookAPI {
             bookData.categories = categories != null ? Util.parseObjectToString(categories) : null;
             bookData.authors = authors != null ? Util.parseObjectToString(authors) : null;
 
-            bookDataList.add(bookData);
+            results.add(bookData);
         }
 
-        System.debug(bookDataList);
+        BookDataList bookDataList = new BookDataList();
+        bookDataList.totalResults = (Integer) parsedResponse.get('totalItems');
+        bookDataList.results = results;
+
         return bookDataList;
     }
 }
