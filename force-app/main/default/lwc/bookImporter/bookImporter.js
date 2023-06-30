@@ -12,7 +12,7 @@ export default class BookImporter extends LightningElement {
     }
 
     handleSearch() {
-        searchBooks({ searchTerm: this.searchTerm, startIndex: this.startIndex, maxResults: this.maxResults, api: 'GoogleBookAPI' })
+        searchBooks({ searchTerm: this.searchTerm, startIndex: this.startIndex, maxResults: this.maxResults, api: 'OpenLibraryAPI' })
             .then(response => {
                 this.searchResults = response.results;
                 console.log(response.totalResults);
