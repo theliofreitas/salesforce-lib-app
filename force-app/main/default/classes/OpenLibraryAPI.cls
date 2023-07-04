@@ -6,7 +6,7 @@ public class OpenLibraryAPI implements IBookAPI {
 
     // Implemented interface method
     public BookDataList searchBooks(String searchTerm, Integer startIndex, Integer maxResults) {
-        String endpoint = API_ENDPOINT + '?q=' + EncodingUtil.urlEncode(searchTerm, 'UTF-8');
+        String endpoint = API_ENDPOINT + '/search.json?q=' + EncodingUtil.urlEncode(searchTerm, 'UTF-8');
         endpoint += '&has_fulltext=' + true + '&offset=' + startIndex + '&limit=' + maxResults;
         
         HttpResponse response = sendRequest('GET', endpoint);
