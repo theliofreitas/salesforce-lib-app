@@ -43,3 +43,6 @@ $RECYCLE.BIN/
 **/__pycache__/
 **/.venv/
 **/venv/
+
+# Named Credentials
+/force-app/main/default/namedCredentials/Marvel_API.namedCredential-meta.xml
