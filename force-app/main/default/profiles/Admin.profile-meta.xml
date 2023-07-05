@@ -51,6 +51,11 @@
     </classAccesses>
     <custom>false</custom>
     <fieldPermissions>
+        <editable>false</editable>
+        <field>API_Key__mdt.Key__c</field>
+        <readable>false</readable>
+    </fieldPermissions>
+    <fieldPermissions>
         <editable>true</editable>
         <field>Account.AccountNumber</field>
         <readable>true</readable>
@@ -255,6 +260,9 @@
         <field>Borrowing__c.Status__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <layoutAssignments>
+        <layout>API_Key__mdt-API Key Layout</layout>
+    </layoutAssignments>
     <layoutAssignments>
         <layout>Book_Author__c-Book Author Layout</layout>
     </layoutAssignments>

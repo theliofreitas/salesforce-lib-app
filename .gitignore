@@ -44,5 +44,6 @@ $RECYCLE.BIN/
 **/.venv/
 **/venv/
 
-# Named Credentials
-/force-app/main/default/namedCredentials/Marvel_API.namedCredential-meta.xml
+# Marvel API Keys that had to be stored in custom metadata records
+/force-app/main/default/customMetadata/API_Key.Marvel_Private_API_Key.md-meta.xml
+/force-app/main/default/customMetadata/API_Key.Marvel_Public_API_Key.md-meta.xml
