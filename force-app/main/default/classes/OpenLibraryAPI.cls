@@ -24,7 +24,7 @@ public class OpenLibraryAPI implements IBookAPI {
     private HttpResponse sendRequest(String method, String endpoint) {
         HttpRequest request = new HttpRequest();
         request.setEndpoint(endpoint);
-        request.setMethod('GET');
+        request.setMethod(method);
 
         Http http = new Http();
         HttpResponse response = http.send(request);

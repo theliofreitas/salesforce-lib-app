@@ -24,7 +24,7 @@ public class GoogleBookAPI implements IBookAPI {
     private HttpResponse sendRequest(String method, String endpoint) {
         HttpRequest request = new HttpRequest();
         request.setEndpoint(endpoint);
-        request.setMethod('GET');
+        request.setMethod(method);
         request.setHeader('Authorization', 'key={!$Credential.Password}');
 
         Http http = new Http();
