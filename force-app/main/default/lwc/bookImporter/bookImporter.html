@@ -7,6 +7,15 @@
             onchange={handleSearchTermChange}
         ></lightning-input>
 
+        <lightning-combobox
+            name="source"
+            label="Source"
+            value={source}
+            placeholder="Select Source"
+            options={sourceOptions}
+            onchange={handleSourceChange} >
+        </lightning-combobox>
+
         <lightning-button
             label="Search"
             icon-name="utility:search"
