@@ -1,26 +1,34 @@
 <template>
     <lightning-card title = 'Book Importer'>
-        <lightning-input 
-            label="Search"
-            type="search"
-            value={searchTerm}
-            onchange={handleSearchTermChange}
-        ></lightning-input>
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_3-of-5">
+                <lightning-input 
+                    label="Search"
+                    type="search"
+                    value={searchTerm}
+                    onchange={handleSearchTermChange}>
+                </lightning-input>
+            </div>
 
-        <lightning-combobox
-            name="source"
-            label="Source"
-            value={source}
-            placeholder="Select Source"
-            options={sourceOptions}
-            onchange={handleSourceChange} >
-        </lightning-combobox>
+            <div class="slds-col slds-size_1-of-5">
+                <lightning-combobox
+                    name="source"
+                    label="Source"
+                    value={source}
+                    placeholder="Select Source"
+                    options={sourceOptions}
+                    onchange={handleSourceChange}>
+                </lightning-combobox>
+            </div>
 
-        <lightning-button
-            label="Search"
-            icon-name="utility:search"
-            onclick={handleSearch}
-        ></lightning-button>
+            <div class="slds-col slds-size_1-of-5">
+                <lightning-button
+                    label="Search"
+                    icon-name="utility:search"
+                    onclick={handleSearch}>
+                </lightning-button>
+            </div>
+        </div>
 
         <template if:true={searchResults}>
             <ul>
