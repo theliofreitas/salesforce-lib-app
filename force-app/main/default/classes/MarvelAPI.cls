@@ -42,6 +42,7 @@ public class MarvelAPI implements IBookAPI {
 
     // Parse response method
     private BookDataList parseResponse(HttpResponse response) {
+        System.debug(response);
         Map<String, Object> parsedResponse = (Map<String, Object>) JSON.deserializeUntyped(response.getBody());
         Map<String, Object> data = (Map<String, Object>) parsedResponse.get('data');
         List<Object> items = (List<Object>) data.get('results');

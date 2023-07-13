@@ -1,48 +1,49 @@
 <template>
-    <lightning-card title = 'Book Importer'>
-        <div class="slds-grid slds-gutters">
-            <div class="slds-col slds-size_3-of-5">
-                <lightning-input 
-                    label="Search"
-                    type="search"
-                    value={searchTerm}
-                    onchange={handleSearchTermChange}>
-                </lightning-input>
+    <lightning-card title="Book Importer">
+        <div class="slds-p-horizontal_medium">
+            <div class="slds-grid slds-gutters">
+                <div class="slds-col slds-align-bottom">
+                    <lightning-input 
+                        label="Search"
+                        type="search"
+                        value={searchTerm}
+                        onchange={handleSearchTermChange}>
+                    </lightning-input>
+                </div>
+
+                <div class="slds-col slds-align-bottom">
+                    <lightning-combobox
+                        name="source"
+                        label="Source"
+                        value={source}
+                        placeholder="Select Source"
+                        options={sourceOptions}
+                        onchange={handleSourceChange}>
+                    </lightning-combobox>
+                </div>
+
+                <div class="slds-col slds-align-bottom">
+                    <lightning-button
+                        label="Search"
+                        icon-name="utility:search"
+                        onclick={handleSearch}>
+                    </lightning-button>
+                </div>
             </div>
 
-            <div class="slds-col slds-size_1-of-5">
-                <lightning-combobox
-                    name="source"
-                    label="Source"
-                    value={source}
-                    placeholder="Select Source"
-                    options={sourceOptions}
-                    onchange={handleSourceChange}>
-                </lightning-combobox>
-            </div>
+            <template if:true={searchResults}>
+                <ul>
+                    <template for:each={searchResults} for:item="result">
+                        <li key={result.externalId}>{result.title}</li>
+                    </template>
+                </ul>
+            </template>
 
-            <div class="slds-col slds-size_1-of-5">
-                <lightning-button
-                    label="Search"
-                    icon-name="utility:search"
-                    onclick={handleSearch}>
-                </lightning-button>
-            </div>
+            <lightning-button
+                label="Next page"
+                icon-name="utility:jump_to_right"
+                onclick={handleNextPage}
+            ></lightning-button>
         </div>
-
-        <template if:true={searchResults}>
-            <ul>
-                <template for:each={searchResults} for:item="result">
-                    <li key={result.externalId}>{result.title}</li>
-                </template>
-            </ul>
-        </template>
-
-        <lightning-button
-            label="Next page"
-            icon-name="utility:jump_to_right"
-            onclick={handleNextPage}
-        ></lightning-button>
-
     </lightning-card>
 </template>
