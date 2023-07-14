@@ -1,6 +1,7 @@
 <template>
     <lightning-card title="Book Importer">
         <div class="slds-p-horizontal_medium">
+            <!-- Header -->
             <div class="slds-grid slds-gutters">
                 <div class="slds-col slds-align-bottom">
                     <lightning-input 
@@ -31,14 +32,32 @@
                 </div>
             </div>
 
-            <template if:true={searchResults}>
-                <ul>
-                    <template for:each={searchResults} for:item="result">
-                        <li key={result.externalId}>{result.title}</li>
-                    </template>
-                </ul>
-            </template>
+            <!-- Body -->
+            <div class="slds-p-vertical_medium">
+                <template if:true={searchResults}>
+                    <table class="slds-table slds-table_bordered books-table">
+                        <thead>
+                            <tr>
+                                <th>Title</th>
+                                <th>Description</th>
+                                <th>Page count</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={searchResults} for:item="result">
+                                <tr key={result.externalId}>
+                                    <td>{result.title}</td>
+                                    <td>{result.description}</td>
+                                    <td>{result.pageCount}</td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </template>
+            </div>
 
+
+            <!-- Footer -->
             <lightning-button
                 label="Next page"
                 icon-name="utility:jump_to_right"
