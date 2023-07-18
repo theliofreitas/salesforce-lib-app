@@ -2,8 +2,8 @@ import { LightningElement, api } from 'lwc';
 import searchBooks from '@salesforce/apex/BookImporterController.searchBooks';
 
 export default class BookImporter extends LightningElement {
-    @api searchTerm = '';
-    @api source = '';
+    @api searchTerm = 'Alice';
+    @api source = 'GoogleBookAPI';
     searchResults;
     startIndex = 0;
     maxResults = 15;
