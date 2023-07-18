@@ -35,30 +35,50 @@
             <!-- Body -->
             <div class="slds-p-vertical_medium">
                 <template if:true={searchResults}>
-                    <table class="slds-table slds-table_bordered books-table">
-                        <thead>
-                            <tr>
-                                <th>Cover</th>
-                                <th>Title</th>
-                                <th>Description</th>
-                                <th>Page count</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <template for:each={searchResults} for:item="result">
-                                <tr key={result.externalId}>
-                                    <td>
-                                        <img src="https://books.google.com/books/content?id=jSbZDQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"/>
-                                    </td>
-                                    <td>{result.title}</td>
-                                    <td class="cutoff-text">
-                                        {result.description}
-                                    </td>
-                                    <td>{result.pageCount}</td>
+                    <div class="slds-scrollable_y" style="height:400px;">
+                        <table class="slds-table slds-table_bordered books-table">
+                            <thead>
+                                <tr class="">
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Cover">Cover</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Title">Title</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Description">Description</div>
+                                    </th>
+                                    <th scope="col">
+                                        <div class="slds-truncate" title="Cover">Page count</div>
+                                    </th>
                                 </tr>
-                            </template>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                                <template for:each={searchResults} for:item="result">
+                                    <tr class="slds-hint-parent" key={result.externalId}>
+                                        <td>
+                                            <img src="https://books.google.com/books/content?id=jSbZDQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"/>
+                                        </td>
+                                        <td class="slds-cell-wrap">
+                                            <div class="slds-line-clamp">
+                                                {result.title}
+                                            </div>
+                                        </td>
+                                        <td class="slds-cell-wrap">
+                                            <div class="slds-line-clamp">
+                                                {result.description}
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div class="slds-truncate">
+                                                {result.pageCount}
+                                            </div>
+                                        </td>
+                                        </tr>
+                                </template>
+                            </tbody>
+                        </table>
+                    </div>
                 </template>
             </div>
 

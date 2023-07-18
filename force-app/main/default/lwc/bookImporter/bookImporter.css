@@ -1,15 +1,3 @@
 .books-table th {
-    padding: 0.25rem 0.5rem;
-    white-space: nowrap;
-}
-
-.books-table td {
-    white-space: normal;
-}
-
-.cutoff-text {
-    overflow: hidden;
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 3;
+    padding: var(--lwc-spacingSmall);
 }
