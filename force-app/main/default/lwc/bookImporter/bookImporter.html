@@ -6,6 +6,8 @@
                 <div class="slds-col slds-align-bottom">
                     <lightning-input 
                         label="Search"
+                        name="search"
+                        data-fieldname="search"
                         type="search"
                         value={searchTerm}
                         onchange={handleSearchTermChange}>
@@ -14,8 +16,8 @@
 
                 <div class="slds-col slds-align-bottom">
                     <lightning-combobox
-                        name="source"
                         label="Source"
+                        name="source"
                         value={source}
                         placeholder="Select Source"
                         options={sourceOptions}

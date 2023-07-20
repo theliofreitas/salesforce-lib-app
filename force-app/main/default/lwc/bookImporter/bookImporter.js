@@ -15,6 +15,10 @@ export default class BookImporter extends LightningElement {
             { label: 'Marvel', value: 'MarvelAPI' },
         ];
     }
+
+    renderedCallback() {
+        this.setFocus();
+    }
     
     handleSearchTermChange(event) {
         this.searchTerm = event.target.value;
@@ -40,5 +44,11 @@ export default class BookImporter extends LightningElement {
     handleNextPage() {
         this.startIndex = this.startIndex + this.maxResults;
         this.handleSearch();
+    }
+
+    setFocus() {
+        let element = this.template.querySelector("lightning-input[data-fieldname='search']");
+        console.log('Focus on: ' + element);
+        element.focus();
     }
 }
