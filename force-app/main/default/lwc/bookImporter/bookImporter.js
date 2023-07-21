@@ -16,10 +16,13 @@ export default class BookImporter extends LightningElement {
         ];
     }
 
-    renderedCallback() {
-        this.setFocus();
+    connectedCallback() {
+        // Wait for the renderization and set focus on the search input
+        window.setTimeout(() => {
+            this.searchInputFocus();
+        }, 0);
     }
-    
+
     handleSearchTermChange(event) {
         this.searchTerm = event.target.value;
     }
@@ -46,9 +49,10 @@ export default class BookImporter extends LightningElement {
         this.handleSearch();
     }
 
-    setFocus() {
-        let element = this.template.querySelector("lightning-input[data-fieldname='search']");
-        console.log('Focus on: ' + element);
-        element.focus();
+    searchInputFocus() {
+        const searchInput = this.template.querySelector('lightning-input[data-fieldname="search"]');
+
+        if (searchInput)
+            searchInput.focus();
     }
 }
