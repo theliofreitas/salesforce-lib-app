@@ -35,62 +35,66 @@
             </div>
 
             <!-- Body -->
-            <div class="slds-p-vertical_medium">
-                <template if:true={searchResults}>
-                    <div class="slds-scrollable_y" style="height:400px;">
-                        <table class="slds-table slds-table_bordered books-table">
-                            <thead>
-                                <tr class="">
-                                    <th scope="col">
-                                        <div class="slds-truncate" title="Cover">Cover</div>
-                                    </th>
-                                    <th scope="col">
-                                        <div class="slds-truncate" title="Title">Title</div>
-                                    </th>
-                                    <th scope="col">
-                                        <div class="slds-truncate" title="Description">Description</div>
-                                    </th>
-                                    <th scope="col">
-                                        <div class="slds-truncate" title="Cover">Page count</div>
-                                    </th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <template for:each={searchResults} for:item="result">
-                                    <tr class="slds-hint-parent" key={result.externalId}>
-                                        <td>
-                                            <img src="https://books.google.com/books/content?id=jSbZDQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"/>
-                                        </td>
-                                        <td class="slds-cell-wrap">
-                                            <div class="slds-line-clamp">
-                                                {result.title}
-                                            </div>
-                                        </td>
-                                        <td class="slds-cell-wrap">
-                                            <div class="slds-line-clamp">
-                                                {result.description}
-                                            </div>
-                                        </td>
-                                        <td>
-                                            <div class="slds-truncate">
-                                                {result.pageCount}
-                                            </div>
-                                        </td>
-                                        </tr>
-                                </template>
-                            </tbody>
-                        </table>
+            <div class="slds-p-vertical_medium" style="height: 50vh">
+                <div class="slds-scrollable_y custom-scrollbar">
+                    <table class="slds-table slds-table_bordered books-table">
+                        <thead>
+                            <tr class="">
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Cover">Cover</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Title">Title</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Description">Description</div>
+                                </th>
+                                <th scope="col">
+                                    <div class="slds-truncate" title="Cover">Page count</div>
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={searchResults} for:item="result">
+                                <tr class="slds-hint-parent" key={result.externalId}>
+                                    <td>
+                                        <img src="https://books.google.com/books/content?id=jSbZDQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"/>
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        <div class="slds-line-clamp">
+                                            {result.title}
+                                        </div>
+                                    </td>
+                                    <td class="slds-cell-wrap">
+                                        <div class="slds-line-clamp">
+                                            {result.description}
+                                        </div>
+                                    </td>
+                                    <td>
+                                        <div class="slds-truncate">
+                                            {result.pageCount}
+                                        </div>
+                                    </td>
+                                    </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- Show a message if there are no search results -->
+                <template if:false={searchResults.length}>
+                    <div class="slds-text-color_weak slds-text-align_center slds-m-vertical_medium">
+                        <p>{searchResultsMessage}</p>
                     </div>
                 </template>
             </div>
 
-
             <!-- Footer -->
-            <lightning-button
+            <!-- <lightning-button
                 label="Next page"
                 icon-name="utility:jump_to_right"
                 onclick={handleNextPage}
-            ></lightning-button>
+            ></lightning-button> -->
         </div>
     </lightning-card>
 </template>

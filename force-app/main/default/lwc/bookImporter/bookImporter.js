@@ -4,7 +4,8 @@ import searchBooks from '@salesforce/apex/BookImporterController.searchBooks';
 export default class BookImporter extends LightningElement {
     @api searchTerm = 'Alice';
     @api source = 'GoogleBookAPI';
-    searchResults;
+    searchResults = [];
+    searchResultsMessage = 'Search for a book to see the results';
     startIndex = 0;
     maxResults = 15;
 
@@ -35,6 +36,10 @@ export default class BookImporter extends LightningElement {
         searchBooks({ searchTerm: this.searchTerm, startIndex: this.startIndex, maxResults: this.maxResults, api: this.source })
             .then(response => {
                 this.searchResults = response.results;
+                if (this.searchResults.length == 0) {
+                    this.searchResultsMessage = 'No results found for this search'
+                }
+
                 console.log(response.totalResults);
                 console.log(response.results);
             })
