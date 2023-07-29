@@ -6,6 +6,7 @@ export default class BookImporter extends LightningElement {
     @api source = 'GoogleBookAPI';
     searchResults = [];
     searchResultsMessage = 'Search for a book to see the results';
+    isLoading = false;
     startIndex = 0;
     maxResults = 15;
 
@@ -33,6 +34,7 @@ export default class BookImporter extends LightningElement {
     }
 
     handleSearch() {
+        this.isLoading = true;
         searchBooks({ searchTerm: this.searchTerm, startIndex: this.startIndex, maxResults: this.maxResults, api: this.source })
             .then(response => {
                 this.searchResults = response.results;
@@ -42,10 +44,14 @@ export default class BookImporter extends LightningElement {
 
                 console.log(response.totalResults);
                 console.log(response.results);
+
+                this.isLoading = false;
             })
             .catch(error => {
                 // Handle any error that occurred
                 console.error('Error calling Apex method:', error);
+                
+                this.isLoading = false;
             });
     }
 

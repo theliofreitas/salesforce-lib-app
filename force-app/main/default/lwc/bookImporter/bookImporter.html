@@ -81,9 +81,16 @@
                     </table>
                 </div>
 
+                <!-- Show a loading indicator while loading is in progress -->
+                <template if:true={isLoading}>
+                    <div class="slds-align_absolute-center slds-var-p-around_medium">
+                        <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+                    </div>
+                </template>
+
                 <!-- Show a message if there are no search results -->
                 <template if:false={searchResults.length}>
-                    <div class="slds-text-color_weak slds-text-align_center slds-m-vertical_medium">
+                    <div class="slds-text-color_weak slds-text-align_center slds-var-m-around_medium">
                         <p>{searchResultsMessage}</p>
                     </div>
                 </template>
